@@ -1,1 +1,90 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  height: 100%;
+}
+
+.page-top {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+
+.page-content {
+  margin-top: 20px;
+
+}
+
+.nav-main {
+  .nav-item {
+    margin: 1rem;
+  }
+}
+
+.table {
+  &__head {
+    position: sticky;
+    top: 20px;
+  }
+
+  &__row {
+    cursor: pointer;
+
+    &:hover {
+      background-color: #9af;
+    }
+  }
+
+  .entity-actions > :not(:last-child) {
+    margin-right: .5rem;
+  }
+}
+
+.form-edit {
+  display: block;
+  min-width: 50vw;
+}
+
+.field-label {
+  min-width: 5rem;
+}
+
+.field--name, .field--description {
+  .field-label {
+    display: block;
+  }
+}
+
+.label-text {
+  font-weight: 700;
+  padding-right: 1rem;
+}
+
+.form-field {
+  padding: 1rem 0;
+}
+
+form {
+  .form-control{
+    box-shadow:none;
+    &:focus{
+      box-shadow:none;
+    }
+
+    &.ng-valid.ng-dirty {
+      border-color: rgba(100, 255, 100, .5);
+      box-shadow: 1px 1px 12px rgba(100, 255, 100, .5);
+    }
+    &.ng-invalid.ng-dirty {
+      border-color: rgba(255, 0, 0, .2);
+      box-shadow: 1px 1px 12px rgba(255, 0, 0, .5);
+    }
+  }
+
+}

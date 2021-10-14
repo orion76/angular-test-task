@@ -1,0 +1,60 @@
+<modal-window>
+    <div windowTitle>{{formTitle}}</div>
+    <form [formGroup]="entityForm">
+        <div class="form-field field--name">
+            <label class="field-label">
+                <span class="label-text">Name</span>
+                <input type="text" name="name" formControlName="name" class="form-control">
+              
+            </label>
+        </div>
+        <div class="form-field field--sku">
+            <label class="field-label">
+                <span class="label-text">Sku</span>
+            </label>
+            <input type="text" name="sku" formControlName="sku" aria-label="Sku" class="form-control">
+
+        </div>
+        <div formGroupName="price" class="input-group">
+            <div class="field-label">
+                <span class="label-text">Price</span>
+            </div>
+            <input type="number" min="0" name="product-price" formControlName="amount"
+                   aria-label="Amount"
+                   class="form-control">
+           
+            <select name="priceCurrency" formControlName="currencyCode" class="form-control" aria-label="Currency">
+                <option *ngFor="let option of currencies"  [ngValue]="option.code">{{option.name}}</option>
+            </select>
+           
+        </div>
+
+        <div class="form-field field--description">
+            <label class="field-label">
+                <span class="label-text">Description</span>
+                <textarea name="description" formControlName="description"
+                          class="form-control"
+                          rows="8"
+                ></textarea>
+            </label>
+        </div>
+    </form>
+
+    <ng-container *ngTemplateOutlet="getMessageTemplate('sku');context:getErrorMessages('sku')" ></ng-container>
+    <ng-container  *ngTemplateOutlet="getMessageTemplate('name');context:getErrorMessages('name')"></ng-container>
+    <ng-container  *ngTemplateOutlet="getMessageTemplate('price','currencyCode');context:getErrorMessages('price','currencyCode')"></ng-container>
+    <ng-container  *ngTemplateOutlet="getMessageTemplate('price','amount');context:getErrorMessages('price','amount')"></ng-container>
+   
+    <div windowFooter>
+        <button (click)="submit()" class="btn btn-primary" [disabled]="entityForm.invalid">Save</button>
+        <button (click)="close()" class="btn btn-link">Close</button>
+    </div>
+</modal-window>
+<ng-template #templateValid></ng-template>
+<ng-template #templateInvalid let-errorMessages="messages">
+    <div class="alert alert-danger" role="alert">
+        <ul>
+            <li *ngFor="let message of errorMessages">{{message}}</li>
+        </ul>
+    </div>
+</ng-template>

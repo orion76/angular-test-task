@@ -1,0 +1,27 @@
+:host{
+  background-color: #fff;
+  position: absolute;
+  top: 50vh;
+  left: 10vw;
+  transform: translate(0%, -50%);
+  max-height: 90vh;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+
+
+  .card-body{
+    overflow-y: auto;
+    max-height: 70vh;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    &--text{
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+
+}

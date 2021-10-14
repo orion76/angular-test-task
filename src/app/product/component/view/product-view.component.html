@@ -1,0 +1,27 @@
+<modal-window *ngIf="product">
+
+    <div windowTitle>Product view</div>
+    <div class="view-field">
+        <div class="field-label label-text">Name</div>
+        <div class="field-value">{{product.name}}</div>
+    </div>
+    <div class="view-field">
+        <div class="field-label label-text">SKU</div>
+        <div class="field-value">{{product.sku}}</div>
+    </div>
+    <div class="view-field">
+        <div class="field-label label-text">Price</div>
+        <div class="field-value">{{product.price | price}}</div>
+    </div>
+
+    <div class="view-field">
+        <div class="field-label label-text">Description</div>
+        <div class="field-value">{{product.description}}</div>
+    </div>
+
+    <div windowFooter>
+        <button (click)="close()" class="btn btn-link">Close</button>
+    </div>
+
+</modal-window>
+
