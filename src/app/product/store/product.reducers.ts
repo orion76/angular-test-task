@@ -6,9 +6,6 @@ import { createItemSuccess, deleteItemSuccess, loadAllSuccess, updateItemSuccess
 
 export interface ProductState extends EntityState<IProductModel> {
   productsLoaded: boolean;
-  entityCreate: Partial<IProductModel>;
-  entityEdit: IProductModel;
-  entityView: IProductModel;
 }
 
 export const adapter: EntityAdapter<IProductModel> = createEntityAdapter<IProductModel>();

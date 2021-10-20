@@ -24,11 +24,6 @@ export const areProductsLoaded = createSelector(
   state => state.productsLoaded
 );
 
-export const selectProductsEdit = createSelector(
-  productsFeatureSelector,
-  state => state.entityEdit
-);
-
 function findMaxId(products: IProductModel[]): number {
 
   const sorted = products
@@ -51,16 +46,6 @@ export const selectMaxId = createSelector(
 export const selectBySku = createSelector(
   getAllProducts,
   findSku
-);
-
-export const selectProductsCreate = createSelector(
-  productsFeatureSelector,
-  state => state.entityCreate
-);
-
-export const selectProductsView = createSelector(
-  productsFeatureSelector,
-  state => state.entityView
 );
 
 export const selectProduct = createSelector(
